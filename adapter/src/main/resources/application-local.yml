@@ -1,0 +1,21 @@
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: DEBUG
+            StatementCreatorUtils: TRACE
+
+server:
+  port: 8096
+
+spring:
+  cloud:
+    config:
+      enabled: false
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coupon_db
+    username: youngseok
+    password: dudtjr

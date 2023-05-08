@@ -1,0 +1,8 @@
+rootProject.name = 'jdbc-sample'
+
+include 'adapter'
+include 'application'
+include 'domain'
+
+
+
