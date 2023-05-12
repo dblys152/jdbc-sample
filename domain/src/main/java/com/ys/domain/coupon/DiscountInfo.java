@@ -10,7 +10,7 @@ public class DiscountInfo {
     DiscountType discountType;
     Integer discountValue;
 
-    public Integer getDiscountedAmount(Integer price) {
+    public Integer calculateDiscountableAmount(Integer price) {
         BigDecimal decimalDiscountValue = BigDecimal.valueOf(this.discountValue);
         BigDecimal decimalPrice = BigDecimal.valueOf(price);
 

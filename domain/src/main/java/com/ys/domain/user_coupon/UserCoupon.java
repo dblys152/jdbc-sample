@@ -1,5 +1,6 @@
 package com.ys.domain.user_coupon;
 
+import com.fasterxml.uuid.Generators;
 import com.ys.common.IdGenerator;
 import com.ys.domain.coupon.Coupon;
 import lombok.*;
@@ -57,7 +58,7 @@ public class UserCoupon {
     }
 
     public static UserCoupon create(UserId userId, Coupon coupon, UserCouponPeriod period) {
-        UserCouponId id = UserCouponId.of(IdGenerator.generateType1UUID().toString());
+        UserCouponId id = UserCouponId.of(Generators.timeBasedEpochGenerator().generate().toString());
         return new UserCoupon(id, userId, coupon, UserCouponStatus.AVAILABLE, period);
     }
 
