@@ -1,6 +1,6 @@
-package com.ys.domain.user_coupon;
+package com.ys.domain.published_coupon;
 
-public enum UserCouponStatus {
+public enum Status {
 
     AVAILABLE("AVAILABLE"),
     USED("USED"),
@@ -9,7 +9,7 @@ public enum UserCouponStatus {
 
     private final String value;
 
-    UserCouponStatus(String state) {
+    Status(String state) {
         this.value = state;
     }
 

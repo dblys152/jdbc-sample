@@ -18,5 +18,4 @@ class CouponTest extends SupportedCouponFixture {
                 () -> assertThat(actual.getDiscountInfo()).isNotNull()
         );
     }
-
 }

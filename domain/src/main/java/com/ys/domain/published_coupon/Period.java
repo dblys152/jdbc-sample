@@ -1,23 +1,23 @@
-package com.ys.domain.user_coupon;
+package com.ys.domain.published_coupon;
 
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
-public class UserCouponPeriod {
+public class Period {
 
     private LocalDateTime startedAt;
     private LocalDateTime endedAt;
 
-    private UserCouponPeriod(LocalDateTime startedAt, LocalDateTime endedAt) {
+    private Period(LocalDateTime startedAt, LocalDateTime endedAt) {
         checkValidity(startedAt, endedAt);
         this.startedAt = startedAt;
         this.endedAt = endedAt;
     }
 
-    public static UserCouponPeriod of(LocalDateTime startedAt, LocalDateTime endedAt) {
-        return new UserCouponPeriod(startedAt, endedAt);
+    public static Period of(LocalDateTime startedAt, LocalDateTime endedAt) {
+        return new Period(startedAt, endedAt);
     }
 
     private void checkValidity(LocalDateTime startedAt, LocalDateTime endedAt) {

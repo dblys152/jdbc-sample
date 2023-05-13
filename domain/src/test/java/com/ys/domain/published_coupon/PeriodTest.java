@@ -1,4 +1,4 @@
-package com.ys.domain.user_coupon;
+package com.ys.domain.published_coupon;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
-class UserCouponPeriodTest {
+class PeriodTest {
 
     private static final LocalDateTime NOW = LocalDateTime.now();
 
@@ -17,10 +17,10 @@ class UserCouponPeriodTest {
         LocalDateTime startedAt = NOW;
         LocalDateTime endedAt = NOW.plusDays(5);
 
-        UserCouponPeriod actual = UserCouponPeriod.of(startedAt, endedAt);
+        Period actual = Period.of(startedAt, endedAt);
 
         assertAll(
-                () -> assertThat(actual).isInstanceOf(UserCouponPeriod.class),
+                () -> assertThat(actual).isNotNull(),
                 () -> assertThat(actual.getStartedAt()).isNotNull(),
                 () -> assertThat(actual.getEndedAt()).isNotNull()
         );
@@ -31,6 +31,6 @@ class UserCouponPeriodTest {
         LocalDateTime startedAt = NOW;
         LocalDateTime endedAt = NOW.minusDays(1);
 
-        assertThatThrownBy(() -> UserCouponPeriod.of(startedAt, endedAt)).isInstanceOf(IllegalArgumentException.class);
+        assertThatThrownBy(() -> Period.of(startedAt, endedAt)).isInstanceOf(IllegalArgumentException.class);
     }
 }

@@ -1,4 +1,4 @@
-package com.ys.domain.user_coupon;
+package com.ys.domain.published_coupon;
 
 import lombok.Value;
 

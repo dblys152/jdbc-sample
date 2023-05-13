@@ -1,6 +1,8 @@
 package com.ys.domain.fixture;
 
 import com.ys.domain.coupon.*;
+import com.ys.domain.published_coupon.Period;
+import com.ys.domain.published_coupon.UserId;
 
 import java.time.LocalDateTime;
 
@@ -16,4 +18,6 @@ public class SupportedCouponFixture {
             ANY_COUPON_ID, ANY_COUPON_TYPE, ANY_DISCOUNT_INFO, ANY_DESCRIPTION, NOW, NOW, null, 0L
     );
 
+    protected static final UserId ANY_USER_ID = UserId.of("ANY_USER_ID");
+    protected static final Period ANY_PERIOD = Period.of(NOW, NOW.plusDays(5));
 }

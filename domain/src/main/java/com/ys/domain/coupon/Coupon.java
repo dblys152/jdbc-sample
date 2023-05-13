@@ -1,7 +1,6 @@
 package com.ys.domain.coupon;
 
 import com.fasterxml.uuid.Generators;
-import com.ys.common.IdGenerator;
 import lombok.*;
 
 import java.time.LocalDateTime;
