@@ -31,10 +31,10 @@ class PublishedCouponRepositoryTest extends SupportedCouponEntityFixture {
 
     @Test
     void save() {
-        PublishedCouponEntity userCouponEntity = new PublishedCouponEntity(
+        PublishedCouponEntity publishedCouponEntity = new PublishedCouponEntity(
                 "ANY_ID", ANY_USER_ID, ANY_COUPON_ID, Status.AVAILABLE, NOW, NOW.plusDays(5), null, null, null
         );
-        PublishedCouponEntity actual = repository.save(userCouponEntity);
+        PublishedCouponEntity actual = repository.save(publishedCouponEntity);
 
         assertAll(
                 () -> assertThat(actual).isNotNull(),
