@@ -2,6 +2,7 @@ package com.ys.domain.published_coupon;
 
 import com.fasterxml.uuid.Generators;
 import com.ys.domain.coupon.CouponId;
+import com.ys.refs.user.domain.UserId;
 import lombok.*;
 
 import java.time.LocalDateTime;

@@ -2,7 +2,7 @@ package com.ys.domain.fixture;
 
 import com.ys.domain.coupon.*;
 import com.ys.domain.published_coupon.Period;
-import com.ys.domain.published_coupon.UserId;
+import com.ys.refs.user.domain.UserId;
 
 import java.time.LocalDateTime;
 

@@ -4,6 +4,7 @@ import com.ys.adapter.coupon.out.persistence.CouponEntity;
 import com.ys.domain.coupon.CouponId;
 import com.ys.domain.published_coupon.PublishedCoupon;
 import com.ys.domain.published_coupon.*;
+import com.ys.refs.user.domain.UserId;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

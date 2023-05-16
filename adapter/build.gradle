@@ -1,6 +1,7 @@
 dependencies {
     implementation project(':application')
     implementation project(':domain')
+    implementation project(':refs:user')
 
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
