@@ -2,9 +2,30 @@ package com.ys.domain.coupon;
 
 import org.junit.jupiter.api.Test;
 
+import javax.validation.ConstraintViolationException;
+
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 class DiscountInfoTest {
+
+    private static final DiscountType ANY_DISCOUNT_TYPE = DiscountType.PERCENTAGE;
+    private static final Integer ANY_DISCOUNT_VALUE = 50;
+
+    @Test
+    void 할인_정보_생성() {
+        DiscountInfo actual = DiscountInfo.of(ANY_DISCOUNT_TYPE, ANY_DISCOUNT_VALUE);
+        assertThat(actual).isNotNull();
+    }
+
+    @Test
+    void 할인_정보_생성_실패() {
+        assertAll(
+                () -> assertThatThrownBy(() -> DiscountInfo.of(null, ANY_DISCOUNT_VALUE)).isInstanceOf(ConstraintViolationException.class),
+                () -> assertThatThrownBy(() -> DiscountInfo.of(ANY_DISCOUNT_TYPE, null)).isInstanceOf(ConstraintViolationException.class)
+        );
+    }
 
     @Test
     void 퍼센테이지_할인_계산() {

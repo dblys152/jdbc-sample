@@ -1,17 +1,23 @@
 package com.ys.domain.coupon;
 
 import com.fasterxml.uuid.Generators;
+import com.ys.common.SelfValidating;
 import lombok.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Coupon {
+public class Coupon extends SelfValidating<Coupon> {
 
+    @Valid @NotNull
     private CouponId id;
+    @NotNull
     private CouponType couponType;
+    @Valid @NotNull
     private DiscountInfo discountInfo;
     private String description;
     private LocalDateTime createdAt;
@@ -24,6 +30,7 @@ public class Coupon {
         this.couponType = couponType;
         this.discountInfo = discountInfo;
         this.description = description;
+        validateSelf();
     }
 
     public static Coupon of(

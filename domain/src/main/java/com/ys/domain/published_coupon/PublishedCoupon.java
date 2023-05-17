@@ -1,21 +1,29 @@
 package com.ys.domain.published_coupon;
 
 import com.fasterxml.uuid.Generators;
+import com.ys.common.SelfValidating;
 import com.ys.domain.coupon.CouponId;
 import com.ys.refs.user.domain.UserId;
 import lombok.*;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+@EqualsAndHashCode(callSuper = true)
 @Getter
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class PublishedCoupon {
+public class PublishedCoupon extends SelfValidating<PublishedCoupon> {
 
+    @NotNull
     private String id;
+    @Valid @NotNull
     private UserId userId;
+    @Valid @NotNull
     private CouponId couponId;
+    @NotNull
     private Status status;
+    @Valid @NotNull
     private Period period;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
@@ -33,6 +41,7 @@ public class PublishedCoupon {
         this.couponId = couponId;
         this.status = status;
         this.period = period;
+        validateSelf();
     }
 
     public static PublishedCoupon of(

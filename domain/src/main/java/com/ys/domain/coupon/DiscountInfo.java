@@ -1,14 +1,24 @@
 package com.ys.domain.coupon;
 
+import com.ys.common.SelfValidating;
 import lombok.Value;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Value(staticConstructor = "of")
-public class DiscountInfo {
+public class DiscountInfo extends SelfValidating<DiscountInfo> {
 
+    @NotNull
     DiscountType discountType;
+    @NotNull
     Integer discountValue;
+
+    private DiscountInfo(DiscountType discountType, Integer discountValue) {
+        this.discountType = discountType;
+        this.discountValue = discountValue;
+        validateSelf();
+    }
 
     public Integer calculateDiscountableAmount(Integer price) {
         BigDecimal decimalDiscountValue = BigDecimal.valueOf(this.discountValue);

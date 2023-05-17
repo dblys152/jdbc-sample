@@ -5,6 +5,8 @@ import org.assertj.core.api.AssertionsForClassTypes;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.validation.ConstraintViolationException;
+
 import static com.ys.domain.published_coupon.Status.*;
 import static com.ys.domain.published_coupon.Status.EXPIRED;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -32,6 +34,15 @@ class PublishedCouponTest extends SupportedCouponFixture {
                 () -> AssertionsForClassTypes.assertThat(actual.getCouponId()).isNotNull(),
                 () -> AssertionsForClassTypes.assertThat(actual.getStatus()).isEqualTo(AVAILABLE),
                 () -> AssertionsForClassTypes.assertThat(actual.getPeriod()).isNotNull()
+        );
+    }
+
+    @Test
+    void 발행쿠폰_생성_실패() {
+        assertAll(
+                () -> assertThatThrownBy(() -> PublishedCoupon.create(null, ANY_COUPON_ID, ANY_PERIOD)).isInstanceOf(ConstraintViolationException.class),
+                () -> assertThatThrownBy(() -> PublishedCoupon.create(ANY_USER_ID, null, ANY_PERIOD)).isInstanceOf(ConstraintViolationException.class),
+                () -> assertThatThrownBy(() -> PublishedCoupon.create(ANY_USER_ID, ANY_COUPON_ID, null)).isInstanceOf(ConstraintViolationException.class)
         );
     }
 

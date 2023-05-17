@@ -13,7 +13,7 @@ class PeriodTest {
     private static final LocalDateTime NOW = LocalDateTime.now();
 
     @Test
-    void 유저_쿠폰_기간을_생성한다() {
+    void 발행쿠폰_기간을_생성한다() {
         LocalDateTime startedAt = NOW;
         LocalDateTime endedAt = NOW.plusDays(5);
 
